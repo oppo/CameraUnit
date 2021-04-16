@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2021 OPPO.  All rights reserved.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~       http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~  limitations under the License.
+  ~
+  ~ File: - shortcuts.xml
+  ~ Description:
+  ~     N/A
+  ~
+  ~ Version: 1.0.0
+  ~ Date: 2021-04-09
+  ~ Owner: Jero Yang
+  ~
+  ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ Revision History ~~~~~~~~~~~~~~~~~~~~~~~
+  ~ <author>             <date>           <version>              <desc>
+  ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Jero Yang           2021-04-09           1.0.0         project init
+  ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  -->
+
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="shortcut_texture_view"
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutLongLabel="@string/texture_view_as_preview"
+        android:shortcutDisabledMessage="@string/texture_view_as_preview"
+        android:shortcutShortLabel="@string/texture_view_as_preview">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.oplus.ocs.cameraunit.component.MainActivity"
+            android:targetPackage="com.ocs.cameraunit">
+            <extra android:name="view_type" android:value="texture_view"/>
+        </intent>
+
+        <categories
+            android:name="android.shortcut.conversation"/>
+    </shortcut>
+
+    <shortcut
+        android:shortcutId="shortcut_surface_texture"
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutLongLabel="@string/surface_texture_as_preview"
+        android:shortcutDisabledMessage="@string/surface_texture_as_preview"
+        android:shortcutShortLabel="@string/surface_texture_as_preview">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.oplus.ocs.cameraunit.component.MainActivity"
+            android:targetPackage="com.ocs.cameraunit">
+            <extra android:name="view_type" android:value="surface_texture"/>
+        </intent>
+
+        <categories
+            android:name="android.shortcut.conversation"/>
+    </shortcut>
+
+    <shortcut
+        android:shortcutId="shortcut_image_reader"
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutLongLabel="@string/image_reader_as_preview"
+        android:shortcutDisabledMessage="@string/image_reader_as_preview"
+        android:shortcutShortLabel="@string/image_reader_as_preview">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.oplus.ocs.cameraunit.component.MainActivity"
+            android:targetPackage="com.ocs.cameraunit">
+            <extra android:name="view_type" android:value="image_reader"/>
+        </intent>
+
+        <categories
+            android:name="android.shortcut.conversation"/>
+    </shortcut>
+</shortcuts>

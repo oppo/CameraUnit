@@ -1,0 +1,43 @@
+<!--
+  ~ Copyright (c) 2021 OPPO.  All rights reserved.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~       http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~  limitations under the License.
+  ~
+  ~ File: - menu_super_eis_light.xml
+  ~ Description:
+  ~     N/A
+  ~
+  ~ Version: 1.0.0
+  ~ Date: 2021-04-09
+  ~ Owner: Jero Yang
+  ~
+  ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ Revision History ~~~~~~~~~~~~~~~~~~~~~~~
+  ~ <author>             <date>           <version>              <desc>
+  ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Jero Yang           2021-04-09           1.0.0         project init
+  ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  -->
+
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:name="vector"
+    android:width="@dimen/svg_icon_width"
+    android:height="@dimen/svg_icon_height"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+    <path
+        android:name="path_width"
+        android:pathData="M 53.905 27.02 C 53.959 27.033 54.006 27.055 54.051 27.086 C 54.096 27.118 54.132 27.151 54.221 27.255 L 59.127 32.979 C 59.486 33.397 59.63 33.529 59.81 33.655 C 59.99 33.781 60.177 33.867 60.39 33.922 C 60.603 33.977 60.796 34 61.348 34 L 65.436 34 C 66.328 34 66.651 34.093 66.977 34.267 C 67.303 34.441 67.559 34.697 67.733 35.023 C 67.907 35.349 68 35.672 68 36.564 L 68 65.436 C 68 66.328 67.907 66.651 67.733 66.977 C 67.559 67.303 67.303 67.559 66.977 67.733 C 66.651 67.907 66.328 68 65.436 68 L 30.564 68 C 29.672 68 29.349 67.907 29.023 67.733 C 28.697 67.559 28.441 67.303 28.267 66.977 C 28.093 66.651 28 66.328 28 65.436 L 28 36.564 C 28 35.672 28.093 35.349 28.267 35.023 C 28.441 34.697 28.697 34.441 29.023 34.267 C 29.349 34.093 29.672 34 30.564 34 L 34.655 34 C 35.206 34 35.4 33.977 35.612 33.922 C 35.825 33.867 36.013 33.781 36.193 33.655 C 36.373 33.529 36.516 33.397 36.875 32.979 L 41.781 27.255 C 41.871 27.151 41.907 27.118 41.952 27.086 C 41.997 27.055 42.044 27.033 42.097 27.02 C 42.139 27.009 42.179 27.003 42.264 27.001 L 53.666 27 C 53.804 27 53.852 27.006 53.905 27.02 Z M 48 43 C 44.134 43 41 46.134 41 50 C 41 53.866 44.134 57 48 57 C 51.866 57 55 53.866 55 50 C 55 46.134 51.866 43 48 43 Z M 18 62 L 15.112 56.224 C 15.041 56.083 15.041 55.917 15.112 55.776 L 17.888 50.224 C 17.959 50.083 17.959 49.917 17.888 49.776 L 15.112 44.224 C 15.041 44.083 15.041 43.917 15.112 43.776 L 18 38 M 78 38 L 80.888 43.776 C 80.959 43.917 80.959 44.083 80.888 44.224 L 78.112 49.776 C 78.041 49.917 78.041 50.083 78.112 50.224 L 80.888 55.776 C 80.959 55.917 80.959 56.083 80.888 56.224 L 78 62"
+        android:strokeColor="@android:color/white"
+        android:strokeWidth="4"/>
+</vector>

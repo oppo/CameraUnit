@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2021 OPPO.  All rights reserved.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~       http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~  limitations under the License.
+  ~
+  ~ File: - strings.xml
+  ~ Description:
+  ~     N/A
+  ~
+  ~ Version: 1.0.0
+  ~ Date: 2021-04-09
+  ~ Owner: Jero Yang
+  ~
+  ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ Revision History ~~~~~~~~~~~~~~~~~~~~~~~
+  ~ <author>             <date>           <version>              <desc>
+  ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Jero Yang           2021-04-09           1.0.0         project init
+  ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  -->
+
+<resources>
+    <string name="app_name">CameraUnit</string>
+
+    <string name="permission_proceed">"允许"</string>
+    <string name="permission_refuse">"拒绝"</string>
+    <string name="permission_some_been_refused">"部分权限被拒绝"</string>
+
+    <string name="open_tripod_mode">打开脚架模式</string>
+    <string name="close_tripod_mode">关闭脚架模式</string>
+    <string name="switch_to_wide">切换到广角</string>
+    <string name="switch_to_main">切换到主摄</string>
+    <string name="switch_to_sat">切换到SAT</string>
+    <string name="ratio_16_9">RATIO_16_9</string>
+    <string name="ev_0">EV0</string>
+    <string name="ev">EV%d</string>
+    <string name="ev_plus">EV+%d</string>
+    <string name="blur_default">虚化60</string>
+    <string name="blur_value">虚化%d</string>
+    <string name="start">开始</string>
+    <string name="end">结束</string>
+    <string name="pause">暂停</string>
+    <string name="goon">继续</string>
+
+    <string name="mode_normal_video">视频</string>
+    <string name="mode_normal_capture">照片</string>
+    <string name="mode_normal_preview">预览</string>
+    <string name="mode_night_capture">夜景</string>
+    <string name="mode_portrait_capture">人像</string>
+    <string name="mode_multi_camera">多摄</string>
+    <string name="mode_slowmotion_video">慢动作</string>
+
+    <string name="take_picture">拍照</string>
+    <string name="change_facing">切换</string>
+    <string name="tripod_mode">脚架模式</string>
+
+    <string name="blur_progress_value">虚化 %d%%</string>
+    <string name="config_name_setting">设置</string>
+
+    <string name="surface_view_as_preview">SurfaceView预览</string>
+    <string name="texture_view_as_preview">TextureView预览</string>
+    <string name="image_reader_as_preview">ImageReader预览</string>
+    <string name="surface_texture_as_preview">SurfaceTexture预览</string>
+
+    <!-- camera portrait -->
+    <string name="camera_bokeh_move_farther_away">移远一点</string>
+    <string name="camera_bokeh_move_closer">移近一点</string>
+    <string name="camera_bokeh_need_more_light">需要更多光线</string>
+    <string name="camera_bokeh_place_subject_not_found">将拍摄对象置于 2 米内</string>
+    <string name="camera_bokeh_camera_occlusion">不要遮挡镜头</string>
+    <string name="camera_bokeh_single">此光效不支持多人合照</string>
+
+    <string name="video_60fps_ai_and_sat_exclusive">视频SAT与60fps及AI视频互斥,暂不支持点击</string>
+    <string name="video_ai_and_sat_wide_exclusive">AI视频与SAT及广角互斥,暂不支持点击</string>
+    <string name="video_sat_and_stablizition">视频sat需配合视频防抖,暂不能关闭防抖功能</string>
+
+    <string name="permission_granded_tips">缺少必需权限，无法正常使用</string>
+    <string name="night_capture_tip">夜景拍照中，请保持手机稳定</string>
+
+    <!-- camera name -->
+    <string name="camera_name_front_main">前置</string>
+    <string name="camera_name_rear_main">后置主摄</string>
+    <string name="camera_name_rear_tele">后置长焦</string>
+    <string name="camera_name_rear_wide">后置广角</string>
+    <string name="camera_name_rear_sat">后置SAT</string>
+    <string name="camera_name_rear_portrait">后置人像</string>
+    <string name="camera_name_rear_main_front_main">前后同开</string>
+    <string name="camera_name_rear_main_rear_tele">主摄+长焦</string>
+    <string name="camera_name_rear_main_rear_wide">主摄+广角</string>
+    <string name="camera_name_rear_wide_rear_tele">广角+长焦</string>
+
+    <!-- camera setting -->
+    <string name="setting_version">版本号</string>
+    <string name="setting_open_source_licenses">开源许可证</string>
+    <string name="setting_open_source_licenses_title">Open Source Licenses</string>
+</resources>

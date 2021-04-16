@@ -1,0 +1,60 @@
+<!--
+  ~ Copyright (c) 2021 OPPO.  All rights reserved.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~       http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~  limitations under the License.
+  ~
+  ~ File: - ic_icon_menu_ai_night_video_light.xml
+  ~ Description:
+  ~     N/A
+  ~
+  ~ Version: 1.0.0
+  ~ Date: 2021-04-15
+  ~ Owner: Jero Yang
+  ~
+  ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ Revision History ~~~~~~~~~~~~~~~~~~~~~~~
+  ~ <author>             <date>           <version>              <desc>
+  ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Jero Yang           2021-04-15           1.0.0         project init
+  ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="291"
+    android:viewportHeight="291">
+  <group>
+    <clip-path
+        android:pathData="M0,0L291,0L291,291L0,291L0,0L0,0Z"/>
+    <path
+        android:pathData="M261.549,84.434C260.028,83.533 258.147,83.498 256.595,84.344L202.396,113.938L202.396,96.181C202.381,82.368 191.187,71.174 177.373,71.158L52.806,71.158C38.993,71.174 27.799,82.368 27.783,96.181L27.783,194.983C27.799,208.796 38.993,219.99 52.806,220.006L177.373,220.006C191.187,219.99 202.381,208.796 202.396,194.983L202.396,177.549L256.597,207.142C258.147,207.989 260.029,207.956 261.549,207.054C263.07,206.151 264,204.515 264,202.749L264,88.737C264,86.97 263.068,85.335 261.549,84.434L261.549,84.434L261.549,84.434ZM192.383,194.985C192.376,203.273 185.658,209.989 177.369,209.999L52.806,209.999C44.517,209.989 37.802,203.273 37.792,194.985L37.792,96.181C37.802,87.894 44.517,81.177 52.806,81.167L177.373,81.167C185.66,81.177 192.378,87.894 192.387,96.181L192.383,194.985L192.383,194.985ZM253.991,194.316L202.396,166.146L202.396,125.341L253.991,97.172L253.991,194.316L253.991,194.316Z"
+        android:fillColor="#FFFFFF"
+        android:fillType="evenOdd"
+        android:strokeColor="#00000000"/>
+    <path
+        android:pathData="M113.179,126.374C112.563,124.963 111.178,124.065 109.639,124.065C108.1,124.065 106.715,124.963 106.1,126.374L90.659,161.897C89.813,163.846 90.711,166.103 92.66,166.95C93.173,167.181 93.686,167.283 94.199,167.283C95.686,167.283 97.097,166.411 97.738,164.975L101.124,157.229L118.283,157.229L121.668,164.975C122.515,166.924 124.772,167.822 126.721,166.975C128.67,166.129 129.568,163.846 128.722,161.923L113.179,126.374L113.179,126.374L113.179,126.374ZM104.432,149.509L109.665,137.505L114.897,149.509L104.432,149.509L104.432,149.509L104.432,149.509Z"
+        android:fillColor="#FFFFFF"
+        android:fillType="evenOdd"
+        android:strokeColor="#00000000"/>
+    <path
+        android:pathData="M137.416,138.711C135.288,138.711 133.569,140.429 133.569,142.558L133.569,163.436C133.569,165.565 135.288,167.283 137.416,167.283C139.545,167.283 141.264,165.565 141.264,163.436L141.264,142.558C141.264,140.429 139.545,138.711 137.416,138.711L137.416,138.711L137.416,138.711Z"
+        android:fillColor="#FFFFFF"
+        android:fillType="evenOdd"
+        android:strokeColor="#00000000"/>
+    <path
+        android:pathData="M137.416,125.502C135.288,125.502 133.569,127.22 133.569,129.349L133.569,130.375C133.569,132.504 135.288,134.222 137.416,134.222C139.545,134.222 141.264,132.504 141.264,130.375L141.264,129.349C141.264,127.22 139.545,125.502 137.416,125.502L137.416,125.502L137.416,125.502Z"
+        android:fillColor="#FFFFFF"
+        android:fillType="evenOdd"
+        android:strokeColor="#00000000"/>
+  </group>
+</vector>
