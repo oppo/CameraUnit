@@ -1,0 +1,43 @@
+<!--
+  ~ Copyright (c) 2021 OPPO.  All rights reserved.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~       http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~  limitations under the License.
+  ~
+  ~ File: - menu_hdr_mode_on_light.xml
+  ~ Description:
+  ~     N/A
+  ~
+  ~ Version: 1.0.0
+  ~ Date: 2021-04-09
+  ~ Owner: Jero Yang
+  ~
+  ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ Revision History ~~~~~~~~~~~~~~~~~~~~~~~
+  ~ <author>             <date>           <version>              <desc>
+  ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Jero Yang           2021-04-09           1.0.0         project init
+  ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  -->
+
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:name="vector"
+    android:width="@dimen/svg_icon_width"
+    android:height="@dimen/svg_icon_height"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+    <path
+        android:name="path_width"
+        android:pathData="M 40 34 L 49.59 34 C 51.819 34 52.627 34.232 53.442 34.668 C 54.257 35.104 54.896 35.743 55.332 36.558 C 55.768 37.373 56 38.181 56 40.41 L 56 55.59 C 56 57.819 55.768 58.627 55.332 59.442 C 54.896 60.257 54.257 60.896 53.442 61.332 C 52.627 61.768 51.819 62 49.59 62 L 40 62 L 40 34 Z M 15 32 L 15 64 M 31 32 L 31 64 M 15 48 L 31 48 M 64 34 L 74.727 34 C 76.792 34 77.627 34.232 78.442 34.668 C 79.257 35.104 79.896 35.743 80.332 36.558 C 80.768 37.373 81 38.208 81 40.273 L 81 42.727 C 81 44.792 80.768 45.627 80.332 46.442 C 79.896 47.257 79.257 47.896 78.442 48.332 C 77.627 48.768 76.792 49 74.727 49 L 64 49 L 64 34 Z M 77 49 L 81 63 L 81 64 M 64 47.5 L 64 64"
+        android:strokeColor="@color/icon_light_color"
+        android:strokeWidth="4"/>
+</vector>

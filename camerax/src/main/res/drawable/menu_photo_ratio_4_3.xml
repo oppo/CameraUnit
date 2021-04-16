@@ -1,0 +1,52 @@
+<!--
+  ~ Copyright (c) 2021 OPPO.  All rights reserved.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~       http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~  limitations under the License.
+  ~
+  ~ File: - menu_photo_ratio_4_3.xml
+  ~ Description:
+  ~     N/A
+  ~
+  ~ Version: 1.0.0
+  ~ Date: 2021-04-09
+  ~ Owner: Jero Yang
+  ~
+  ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ Revision History ~~~~~~~~~~~~~~~~~~~~~~~
+  ~ <author>             <date>           <version>              <desc>
+  ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Jero Yang           2021-04-09           1.0.0         project init
+  ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  -->
+
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:name="vector"
+    android:width="@dimen/svg_icon_width"
+    android:height="@dimen/svg_icon_height"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+    <path
+        android:name="path_width"
+        android:pathData="M 72.999 64 L 73 67.59 C 73 69.819 72.768 70.627 72.332 71.442 C 71.896 72.257 71.257 72.896 70.442 73.332 C 69.627 73.768 68.819 74 66.59 74 L 29.41 74 C 27.181 74 26.373 73.768 25.558 73.332 C 24.743 72.896 24.104 72.257 23.668 71.442 C 23.232 70.627 23 69.819 23 67.59 L 22.999 64 M 22.999 32 L 23 28.41 C 23 26.181 23.232 25.373 23.668 24.558 C 24.104 23.743 24.743 23.104 25.558 22.668 C 26.373 22.232 27.181 22 29.41 22 L 66.59 22 C 68.819 22 69.627 22.232 70.442 22.668 C 71.257 23.104 71.896 23.743 72.332 24.558 C 72.768 25.373 73 26.181 73 28.41 L 72.999 32"
+        android:strokeColor="@android:color/white"
+        android:strokeWidth="4"/>
+    <path
+        android:name="path_width"
+        android:pathData="M 39.5 52.5 L 26 52.5 L 26 52 L 35 38.5 L 35.5 38.5 L 35.5 58.5 M 59 39 L 69.5 39 L 69.5 39.5 L 61.5 47.5 L 62 48 C 64.333 46.667 66.5 46.667 68.5 48 C 71.5 50 70.5 54.5 69 56 C 67.5 57.5 65.5 58.5 62.5 57.5 C 60.833 56.833 59.667 55.667 59 54"
+        android:strokeColor="@android:color/white"
+        android:strokeWidth="3"/>
+    <path
+        android:name="path"
+        android:pathData="M 49.404 42.657 C 49.006 42.657 48.624 42.815 48.343 43.097 C 48.062 43.378 47.904 43.761 47.904 44.159 C 47.904 44.557 48.062 44.939 48.343 45.221 C 48.624 45.502 49.006 45.66 49.404 45.66 C 49.801 45.66 50.183 45.502 50.464 45.221 C 50.746 44.939 50.904 44.557 50.904 44.159 C 50.904 43.761 50.746 43.378 50.464 43.097 C 50.183 42.815 49.801 42.657 49.404 42.657 Z M 49.404 50.2 C 49.006 50.2 48.624 50.358 48.343 50.64 C 48.062 50.921 47.904 51.303 47.904 51.702 C 47.904 52.1 48.062 52.482 48.343 52.763 C 48.624 53.045 49.006 53.203 49.404 53.203 C 49.801 53.203 50.183 53.045 50.464 52.763 C 50.746 52.482 50.904 52.1 50.904 51.702 C 50.904 51.303 50.746 50.921 50.464 50.64 C 50.183 50.358 49.801 50.2 49.404 50.2 Z"
+        android:fillColor="@android:color/white"/>
+</vector>

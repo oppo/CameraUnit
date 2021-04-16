@@ -1,0 +1,43 @@
+<!--
+  ~ Copyright (c) 2021 OPPO.  All rights reserved.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~       http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~  limitations under the License.
+  ~
+  ~ File: - menu_flash_auto_dark.xml
+  ~ Description:
+  ~     N/A
+  ~
+  ~ Version: 1.0.0
+  ~ Date: 2021-04-09
+  ~ Owner: Jero Yang
+  ~
+  ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ Revision History ~~~~~~~~~~~~~~~~~~~~~~~
+  ~ <author>             <date>           <version>              <desc>
+  ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Jero Yang           2021-04-09           1.0.0         project init
+  ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  -->
+
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:name="vector"
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+    <path
+        android:name="path_width"
+        android:pathData="M 37 24 L 25 48 L 49 48 L 37 72 M 50.108 70.986 L 50.562 69.986 L 57.062 54.986 L 59.062 54.986 L 65.562 69.986 L 66.034 70.986 M 52.681 64.986 L 63.316 64.986"
+        android:strokeColor="@android:color/white"
+        android:strokeWidth="4"/>
+</vector>

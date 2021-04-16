@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2021 OPPO.  All rights reserved.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~       http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~  limitations under the License.
+  ~
+  ~ File: - AndroidManifest.xml
+  ~ Description:
+  ~     N/A
+  ~
+  ~ Version: 1.0.0
+  ~ Date: 2021-04-09
+  ~ Owner: Jero Yang
+  ~
+  ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ Revision History ~~~~~~~~~~~~~~~~~~~~~~~
+  ~ <author>             <date>           <version>              <desc>
+  ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Jero Yang           2021-04-09           1.0.0         project init
+  ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  -->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ocs.cameraunit">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- If the buildToolsVersion larger than 30.0.2, need this permission for camera unit authenticate -->
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+
+    <uses-feature
+        android:glEsVersion="0x00030000"
+        android:required="true" />
+
+    <application
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CameraUnit">
+
+        <meta-data
+            android:name="com.coloros.ocs.camera.AUTH_CODE"
+            android:value="ATBFAiEAye2uGpJVVNm9xbvasswS+bInWxRQwXeqb0nbCIUY+8kCIHUFNmACMDYUEzDAG0/32d5iuRQ5tl72Y1cDgQSv6IDTab+WAf////8=" />
+
+        <activity
+            android:name="com.oplus.ocs.cameraunit.component.MainActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:resizeableActivity="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.CameraUnit.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
+        </activity>
+
+        <activity
+            android:theme="@style/Theme.CameraUnit.SettingNoActionBar"
+            android:name="com.oplus.ocs.cameraunit.component.SettingActivity"
+            android:screenOrientation="portrait" />
+    </application>
+
+</manifest>

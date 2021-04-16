@@ -1,0 +1,48 @@
+<!--
+  ~ Copyright (c) 2021 OPPO.  All rights reserved.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~       http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~  limitations under the License.
+  ~
+  ~ File: - menu_camera_setting.xml
+  ~ Description:
+  ~     N/A
+  ~
+  ~ Version: 1.0.0
+  ~ Date: 2021-04-09
+  ~ Owner: Jero Yang
+  ~
+  ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ Revision History ~~~~~~~~~~~~~~~~~~~~~~~
+  ~ <author>             <date>           <version>              <desc>
+  ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Jero Yang           2021-04-09           1.0.0         project init
+  ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  -->
+
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:name="vector"
+    android:width="@dimen/svg_icon_width"
+    android:height="@dimen/svg_icon_height"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+    <path
+        android:name="path_width"
+        android:pathData="M 51.073 24.833 L 67.291 34.505 C 69.106 35.587 70.218 37.544 70.218 39.658 L 70.218 56.342 C 70.218 58.456 69.106 60.413 67.291 61.495 L 51.073 71.167 C 49.18 72.296 46.82 72.296 44.927 71.167 L 28.709 61.495 C 26.894 60.413 25.782 58.456 25.782 56.342 L 25.782 39.658 C 25.782 37.544 26.894 35.587 28.709 34.505 L 44.927 24.833 C 46.82 23.704 49.18 23.704 51.073 24.833 Z"
+        android:strokeColor="@android:color/white"
+        android:strokeWidth="4"/>
+    <path
+        android:name="path_width"
+        android:pathData="M 48 40 C 45.879 40 43.843 40.843 42.343 42.343 C 40.843 43.843 40 45.879 40 48 C 40 50.121 40.843 52.157 42.343 53.657 C 43.843 55.157 45.879 56 48 56 C 50.121 56 52.157 55.157 53.657 53.657 C 55.157 52.157 56 50.121 56 48 C 56 45.879 55.157 43.843 53.657 42.343 C 52.157 40.843 50.121 40 48 40 Z"
+        android:strokeColor="@android:color/white"
+        android:strokeWidth="4"/>
+</vector>

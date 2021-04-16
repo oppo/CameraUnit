@@ -1,0 +1,48 @@
+<!--
+  ~ Copyright (c) 2021 OPPO.  All rights reserved.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~       http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~  limitations under the License.
+  ~
+  ~ File: - menu_flash_torch_light.xml
+  ~ Description:
+  ~     N/A
+  ~
+  ~ Version: 1.0.0
+  ~ Date: 2021-04-09
+  ~ Owner: Jero Yang
+  ~
+  ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ Revision History ~~~~~~~~~~~~~~~~~~~~~~~
+  ~ <author>             <date>           <version>              <desc>
+  ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Jero Yang           2021-04-09           1.0.0         project init
+  ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:name="vector"
+    android:width="@dimen/svg_icon_width"
+    android:height="@dimen/svg_icon_height"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+    <group android:name="group">
+        <path
+            android:name="path_width"
+            android:pathData="M 37 24 L 25 48 L 49 48 L 37 72"
+            android:strokeWidth="4"
+            android:strokeColor="@color/icon_light_color" />
+        <path
+            android:name="path_width"
+            android:fillColor="@color/icon_light_color"
+            android:pathData="M 63 56 C 61.674 56 60.402 56.527 59.464 57.464 C 58.527 58.402 58 59.674 58 61 C 58 62.326 58.527 63.598 59.464 64.536 C 60.402 65.473 61.674 66 63 66 C 64.326 66 65.598 65.473 66.536 64.536 C 67.473 63.598 68 62.326 68 61 C 68 59.674 67.473 58.402 66.536 57.464 C 65.598 56.527 64.326 56 63 56 Z M 62 49 L 64 49 L 64 53 L 62 53 Z M 70.778 51.808 L 72.192 53.222 L 69.364 56.05 L 67.95 54.636 Z M 75 60 L 75 62 L 71 62 L 71 60 Z M 72.192 68.778 L 70.778 70.192 L 67.95 67.364 L 69.364 65.95 Z M 64 73 L 62 73 L 62 69 L 64 69 Z M 55.222 70.192 L 53.808 68.778 L 56.636 65.95 L 58.05 67.364 Z M 51 62 L 51 60 L 55 60 L 55 62 Z M 53.808 53.222 L 55.222 51.808 L 58.05 54.636 L 56.636 56.05 Z" />
+    </group>
+</vector>
