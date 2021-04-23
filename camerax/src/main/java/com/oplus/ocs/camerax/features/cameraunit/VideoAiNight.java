@@ -31,6 +31,7 @@
 package com.oplus.ocs.camerax.features.cameraunit;
 
 import android.content.Context;
+import android.util.Log;
 import android.util.Range;
 
 import com.oplus.ocs.camera.CameraDeviceConfig;
@@ -38,6 +39,7 @@ import com.oplus.ocs.camera.CameraDeviceInfo;
 import com.oplus.ocs.camera.CameraUnit;
 import com.oplus.ocs.camerax.ConfigureBean;
 import com.oplus.ocs.camerax.features.BaseFeatureVideoAiNight;
+import com.oplus.ocs.camerax.util.Constant;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,9 +54,11 @@ import static com.oplus.ocs.camera.CameraParameter.VideoFps.FPS_30;
 import static com.oplus.ocs.camera.CameraParameter.VideoFps.FPS_60;
 import static com.oplus.ocs.camera.CameraParameter.VideoFpsValue.VIDEO_FPS_30;
 import static com.oplus.ocs.camera.CameraParameter.VideoFpsValue.VIDEO_FPS_60;
+import static com.oplus.ocs.camerax.util.Constant.VideoStabilizationMode.VIDEO_STABILIZATION;
 import static com.oplus.ocs.camerax.util.Constant.VideoStabilizationMode.VIDEO_STABILIZATION_OFF;
 
 public class VideoAiNight extends BaseFeatureVideoAiNight {
+    private static final String TAG = "VideoAiNight";
 
     @Override
     public <T> void setConfigureParameter(Object configureBuilderHolder, T value) {
@@ -99,6 +103,10 @@ public class VideoAiNight extends BaseFeatureVideoAiNight {
         Map<String, List<String>> conflictMap = cameraDeviceInfo.getConflictParameter(AI_NIGHT_VIDEO_MODE.getKeyName(),
                 configure.isVideoAiNightOn() ? String.valueOf(AI_NIGHT_VIDEO_ON) : String.valueOf(AI_NIGHT_VIDEO_OFF));
 
+        Log.d(TAG, "checkConflictFeature: AI_NIGHT_VIDEO_MODE conflict with: " + conflictMap);
+
+        // 如果存在互斥表，则通过互斥表判断是否和其他功能互斥，需要注意的是，有时互斥结果会在其他功能的互斥结果中和HDR功能互斥。。。
+        // 部分老机型，存在互斥表接口未实现的情况，此情况下，需要按照默认值设置。
         if (null != conflictMap) {
             List<String> fpsLists = conflictMap.get(VIDEO_DYNAMIC_FPS.getKeyName());
 
@@ -114,6 +122,14 @@ public class VideoAiNight extends BaseFeatureVideoAiNight {
 
             if (null != stabilizationLists) {
                 configure.setStabilizationMode(VIDEO_STABILIZATION_OFF);
+            }
+        } else {
+            // Ai视频 与 LiveHDR、720P、60fps、超级防抖、虚化、滤镜等功能互斥。
+            if (configure.isVideoAiNightOn()) {
+                configure.setVideoHdrMode(Constant.HdrMode.HDR_OFF);
+                configure.setVideoResolution(Constant.DisplayResolution.DISPLAY_RESOLUTION_HIGH);
+                configure.setVideoFps(new Range<>(FPS_30, FPS_30));
+                configure.setStabilizationMode(VIDEO_STABILIZATION);
             }
         }
     }

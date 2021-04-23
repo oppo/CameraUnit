@@ -31,6 +31,8 @@
 package com.oplus.ocs.camerax.features.cameraunit;
 
 import android.content.Context;
+import android.util.Log;
+import android.util.Range;
 
 import com.oplus.ocs.camera.CameraDeviceConfig;
 import com.oplus.ocs.camera.CameraDeviceInfo;
@@ -42,10 +44,13 @@ import com.oplus.ocs.camerax.util.Constant;
 import java.util.List;
 import java.util.Map;
 
-import static com.oplus.ocs.camera.CameraParameter.VIDEO_3HDR_MODE;
 import static com.oplus.ocs.camera.CameraParameter.FLASH_MODE;
+import static com.oplus.ocs.camera.CameraParameter.VIDEO_3HDR_MODE;
+import static com.oplus.ocs.camerax.util.Constant.VideoFps.FRAME_RATE_30;
+import static com.oplus.ocs.camerax.util.Constant.VideoStabilizationMode.VIDEO_STABILIZATION_OFF;
 
 public class VideoHdr extends BaseFeatureVideoHdr {
+    private static final String TAG = "VideoHdr";
 
     @Override
     public <T> void setConfigureParameter(Object configureBuilderHolder, T value) {
@@ -78,11 +83,39 @@ public class VideoHdr extends BaseFeatureVideoHdr {
         Map<String, List<String>> conflictMap
                 = cameraDeviceInfo.getConflictParameter(VIDEO_3HDR_MODE.getKeyName(), configure.getVideoHdrMode());
 
+        Log.d(TAG, "checkConflictFeature: VIDEO_3HDR_MODE conflict with: " + conflictMap);
+
+        // 如果存在互斥表，则通过互斥表判断是否和其他功能互斥，需要注意的是，有时互斥结果会在其他功能的互斥结果中和HDR功能互斥。。。
+        // 部分老机型，存在互斥表接口未实现的情况，此情况下，需要按照默认值设置。
         if (null != conflictMap) {
+            // 通常情况下，视频 HDR 会和 Flash、 超级防抖、 Ai视频、高帧率视频互斥。
             List<String> flashModeList = conflictMap.get(FLASH_MODE.getKeyName());
 
             if (null != flashModeList && flashModeList.contains(configure.getFlashMode())) {
                 configure.setFlashMode(CameraParameter.FlashMode.FLASH_OFF);
+            }
+        } else {
+            // conflict with Flash on/auto by default.
+            if (!CameraParameter.CommonStateValue.OFF.equals(configure.getVideoHdrMode())
+                    && !CameraParameter.FlashMode.FLASH_OFF.equals(configure.getStabilizationMode())) {
+                configure.setFlashMode(CameraParameter.FlashMode.FLASH_OFF);
+            }
+
+            // conflict with super stabilization by default.
+            if (!CameraParameter.CommonStateValue.OFF.equals(configure.getVideoHdrMode())
+                    && CameraParameter.VideoStabilizationMode.SUPER_STABILIZATION.equals(configure.getStabilizationMode())) {
+                configure.setStabilizationMode(VIDEO_STABILIZATION_OFF);
+            }
+
+            // conflict with ai night by default.
+            if (!CameraParameter.CommonStateValue.OFF.equals(configure.getVideoHdrMode()) && configure.isVideoAiNightOn()) {
+                configure.setVideoAiNightOn(false);
+            }
+
+            // conflict with high frame rate by default.
+            if (!CameraParameter.CommonStateValue.OFF.equals(configure.getVideoHdrMode())
+                    && CameraParameter.VideoFps.FPS_60 == configure.getVideoFps().getUpper()) {
+                configure.setVideoFps(new Range<>(FRAME_RATE_30, FRAME_RATE_30));
             }
         }
     }

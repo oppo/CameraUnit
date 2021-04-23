@@ -218,7 +218,7 @@ public class MainActivity extends AppCompatActivity {
                 mConfigureBean.setVideoAiNightOn(UiUtils.translateDisplayToBoolean(configValue));
             }
 
-            //检查功能互斥
+            // 检查功能互斥
             FeatureFactory.getInstance().getFeature(featureId).checkConflictFeature(MainActivity.this, mConfigureBean);
 
             // 当配置发生变化时，需要更新所有feature列表，因为存在功能互斥的情况。
@@ -749,7 +749,7 @@ public class MainActivity extends AppCompatActivity {
         public void onCameraReady() {
             Log.d(TAG, "onCameraReady: start");
 
-            updateModeTab();
+            runOnUiThread(MainActivity.this::updateModeTab);
         }
 
         @Override
@@ -757,7 +757,6 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "onCameraOpened: " + cameraType);
 
             CameraController.getInstance().onConfigureChange(mConfigureBean);
-
             runOnUiThread(MainActivity.this::updateFeature);
         }
 

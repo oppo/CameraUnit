@@ -30,6 +30,8 @@
 
 package com.oplus.ocs.base;
 
+import androidx.annotation.NonNull;
+
 import java.util.List;
 
 public class FeatureBean {
@@ -95,5 +97,19 @@ public class FeatureBean {
 
     public void setFeatureDisplayIconLists(List<Integer> mFeatureDisplayIconLists) {
         this.mFeatureDisplayIconLists = mFeatureDisplayIconLists;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return "FeatureBean{" +
+                "mFeatureId=" + mFeatureId +
+                ", mFeatureIcon=" + mFeatureIcon +
+                ", mFeatureName='" + mFeatureName + '\'' +
+                ", selectValue='" + selectValue + '\'' +
+                ", mFeatureSubValues=" + mFeatureSubValues +
+                ", mFeatureDisplayNameLists=" + mFeatureDisplayNameLists +
+                ", mFeatureDisplayIconLists=" + mFeatureDisplayIconLists +
+                '}';
     }
 }

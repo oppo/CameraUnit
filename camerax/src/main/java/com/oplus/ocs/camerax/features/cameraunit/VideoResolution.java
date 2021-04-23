@@ -127,6 +127,10 @@ public class VideoResolution extends BaseFeatureVideoResolution {
 
     @Override
     public void checkConflictFeature(Context appContext, ConfigureBean configure) {
-        // do nothing in this feature
+        // 通常情况下，720P 分辨率下，不支持超级防抖，超级防抖只在 1080P 下支持。
+        if (Constant.DisplayResolution.DISPLAY_RESOLUTION_NORMAL.equals(configure.getVideoResolution())
+                && SUPER_STABILIZATION.equals(configure.getStabilizationMode())) {
+            configure.setStabilizationMode(VIDEO_STABILIZATION);
+        }
     }
 }

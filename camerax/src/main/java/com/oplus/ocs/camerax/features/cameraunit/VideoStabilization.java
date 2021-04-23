@@ -31,6 +31,7 @@
 package com.oplus.ocs.camerax.features.cameraunit;
 
 import android.content.Context;
+import android.util.Log;
 import android.util.Range;
 
 import com.oplus.ocs.camera.CameraDeviceConfig;
@@ -38,12 +39,14 @@ import com.oplus.ocs.camera.CameraDeviceInfo;
 import com.oplus.ocs.camera.CameraParameter;
 import com.oplus.ocs.camerax.ConfigureBean;
 import com.oplus.ocs.camerax.features.BaseFeatureVideoStabilization;
+import com.oplus.ocs.camerax.util.Constant;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import static com.oplus.ocs.camera.CameraParameter.AI_NIGHT_VIDEO_MODE;
+import static com.oplus.ocs.camera.CameraParameter.VIDEO_3HDR_MODE;
 import static com.oplus.ocs.camera.CameraParameter.VIDEO_DYNAMIC_FPS;
 import static com.oplus.ocs.camera.CameraParameter.VIDEO_STABILIZATION_MODE;
 import static com.oplus.ocs.camera.CameraParameter.VideoFps.FPS_30;
@@ -54,6 +57,7 @@ import static com.oplus.ocs.camera.CameraParameter.VideoStabilizationMode.SUPER_
 import static com.oplus.ocs.camera.CameraParameter.VideoStabilizationMode.VIDEO_STABILIZATION;
 
 public class VideoStabilization extends BaseFeatureVideoStabilization {
+    private static final String TAG = "VideoStabilization";
 
     @Override
     public <T> void setConfigureParameter(Object configureBuilderHolder, T value) {
@@ -90,6 +94,11 @@ public class VideoStabilization extends BaseFeatureVideoStabilization {
         Map<String, List<String>> conflictMap = cameraDeviceInfo.getConflictParameter(VIDEO_STABILIZATION_MODE.getKeyName(),
                 configure.getStabilizationMode());
 
+        Log.d(TAG, "checkConflictFeature: VIDEO_STABILIZATION_MODE: " + configure.getStabilizationMode()
+                + " conflict with: " + conflictMap);
+
+        // 如果存在互斥表，则通过互斥表判断是否和其他功能互斥，需要注意的是，有时互斥结果会在其他功能的互斥结果中和HDR功能互斥。。。
+        // 部分老机型，存在互斥表接口未实现的情况，此情况下，需要按照默认值设置。
         if (null != conflictMap) {
             List<String> fpsLists = conflictMap.get(VIDEO_DYNAMIC_FPS.getKeyName());
 
@@ -105,6 +114,25 @@ public class VideoStabilization extends BaseFeatureVideoStabilization {
 
             if (null != aiNightLists) {
                 configure.setVideoAiNightOn(false);
+            }
+
+            List<String> hdrConflictList = conflictMap.get(VIDEO_3HDR_MODE.getKeyName());
+
+            if (null != hdrConflictList) {
+                configure.setVideoHdrMode(Constant.HdrMode.HDR_OFF);
+            }
+
+            // 视频模式下，超级防抖仅支持 1080P 的分辨率
+            if (Constant.VideoStabilizationMode.SUPER_STABILIZATION.equals(configure.getStabilizationMode())) {
+                configure.setVideoResolution(Constant.DisplayResolution.DISPLAY_RESOLUTION_HIGH);
+            }
+        } else {
+            // 通常情况下，超级防抖和 HDR、Ai 视频、30fps、720p 互斥，也就是说，超级防抖仅在 1080p/60fps下支持。
+            if (Constant.VideoStabilizationMode.SUPER_STABILIZATION.equals(configure.getStabilizationMode())) {
+                configure.setVideoHdrMode(Constant.HdrMode.HDR_OFF);
+                configure.setVideoAiNightOn(false);
+                configure.setVideoFps(new Range<>(FPS_60, FPS_60));
+                configure.setVideoResolution(Constant.DisplayResolution.DISPLAY_RESOLUTION_HIGH);
             }
         }
     }

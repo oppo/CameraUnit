@@ -42,7 +42,6 @@ import java.util.List;
 
 import static com.oplus.ocs.camerax.util.Constant.VideoFps.FRAME_RATE_240;
 import static com.oplus.ocs.camerax.util.Constant.VideoFps.FRAME_RATE_30;
-import static com.oplus.ocs.camerax.util.Constant.VideoFps.FRAME_RATE_60;
 
 
 public class ConfigureBean {
@@ -164,10 +163,6 @@ public class ConfigureBean {
 
     public void setVideoHdrMode(String videoHdrMode) {
         this.mFeatureVideoHdrMode = videoHdrMode;
-        mFeatureVideoFps = new Range<>(FRAME_RATE_30, FRAME_RATE_30);
-        mFeatureStabilizationMode = Constant.VideoStabilizationMode.VIDEO_STABILIZATION;
-        mFeatureFlashMode = Constant.FlashMode.FLASH_OFF;
-        mbFeatureVideoAiNightOn = false;
     }
 
     public void setCaptureHdrMode(String captureHdrMode) {
@@ -308,6 +303,7 @@ public class ConfigureBean {
         }
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "ConfigureBean{" +

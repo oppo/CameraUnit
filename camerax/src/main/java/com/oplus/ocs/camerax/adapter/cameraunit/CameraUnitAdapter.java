@@ -603,9 +603,8 @@ public class CameraUnitAdapter extends BaseAdapter {
             // choose the support biggest capture size
             mPictureSize = pictureSizes.get(0);
         } else {
-            if (!VIDEO_RESOLUTION_720P.equals(configure.getVideoResolution())
-                    || SUPER_STABILIZATION.equals(configure.getStabilizationMode())) {
-                // 大于 1080P 或者在超级防抖时，需要用大的video size 和 preview size。
+            if (!Constant.DisplayResolution.DISPLAY_RESOLUTION_NORMAL.equals(configure.getVideoResolution())) {
+                // 目前这里是硬编码，由于list中只有 [1920x1080, 1280x720]， 因此在非 720p 的时候取第一个。
                 if ((null != previewSizes) && !previewSizes.isEmpty()) {
                     mPreviewSize = previewSizes.get(0);
                 }
@@ -623,6 +622,9 @@ public class CameraUnitAdapter extends BaseAdapter {
                 }
             }
         }
+
+        Log.d(TAG, "updateTargetSurfaceSize, mPreviewSize: " + mPreviewSize + ", mVideoSize: " + mVideoSize
+                + "mPictureSize: " + mPictureSize + "previewSizes: " + previewSizes);
     }
 
     private void setConfigParameter(CameraDeviceConfig.Builder builder, ConfigureBean configure) {

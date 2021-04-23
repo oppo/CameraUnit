@@ -35,6 +35,7 @@ import android.util.Range;
 
 import com.oplus.ocs.camera.CameraDeviceConfig;
 import com.oplus.ocs.camera.CameraDeviceInfo;
+import com.oplus.ocs.camera.CameraParameter;
 import com.oplus.ocs.camera.CameraUnit;
 import com.oplus.ocs.camerax.ConfigureBean;
 import com.oplus.ocs.camerax.features.BaseFeatureVideoFps;
@@ -101,10 +102,20 @@ public class VideoFps extends BaseFeatureVideoFps {
         if (null != aiNightConflictMap) {
             List<String> fpsLists = aiNightConflictMap.get(VIDEO_DYNAMIC_FPS.getKeyName());
 
-            // high fps don't support ai night video mode.so if changed to high fps, need close the night video mode. because
-            // MTK don't support 60fps.
             if (null != fpsLists && fpsLists.contains(CameraUtil.convertFpsRangeValue(configure.getVideoFps()))) {
                 configure.setVideoAiNightOn(false);
+            }
+        }
+
+        // 部分老机型，存在互斥表接口未实现的情况，此情况下，需要按照默认值设置。
+        if ((null == stabilizationConflictMap) || (null == aiNightConflictMap)) {
+            if (CameraParameter.VideoFps.FPS_60 == configure.getVideoFps().getUpper()) {
+                // conflict with video hdr on by in 60fps.
+                configure.setVideoHdrMode(CameraParameter.CommonStateValue.OFF);
+                configure.setVideoAiNightOn(false);
+            } else {
+                // conflict with super stabilization in 30fps.
+                configure.setStabilizationMode(VIDEO_STABILIZATION_OFF);
             }
         }
     }

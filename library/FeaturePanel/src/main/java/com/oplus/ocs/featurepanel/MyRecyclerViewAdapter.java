@@ -93,7 +93,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         int itemIndex = selectedFeature.getFeatureSubValues().indexOf(selectedValue);
         List<Integer> iconLists = selectedFeature.getFeatureDisplayIconLists();
 
-        if ((null != iconLists) && !iconLists.isEmpty()) {
+        if ((null != iconLists) && !iconLists.isEmpty() && (0 <= itemIndex)) {
             int selectedFeatureIcon = iconLists.get(itemIndex);
 
             if (0 != selectedFeatureIcon) {
