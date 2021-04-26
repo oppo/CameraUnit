@@ -66,8 +66,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     // oplus cameraunit
-    implementation 'com.oplus.ocs:base:1.0.6@aar'
-    // implementation 'com.oplus.ocs:camera:1.0.6@aar'
-    implementation(name:'api-release', ext:'aar')
+     implementation 'com.oplus.ocs:camera:1.0.6'
+//    implementation 'com.oplus.ocs:base:1.0.6@aar'
+//    implementation(name:'api-release', ext:'aar')
     implementation project(':Base')
 }

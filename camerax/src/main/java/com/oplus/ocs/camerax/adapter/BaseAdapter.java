@@ -40,7 +40,6 @@ import androidx.annotation.NonNull;
 
 import com.oplus.ocs.base.common.ConnectionResult;
 import com.oplus.ocs.camerax.ConfigureBean;
-import com.oplus.ocs.camerax.features.FeatureFactory;
 import com.oplus.ocs.camerax.util.Constant;
 
 import java.util.List;
