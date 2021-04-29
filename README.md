@@ -1,8 +1,10 @@
 CameraUnit Demo App
 =====
 
-![video](https://github.com/oppo/CameraUnit/blob/main/screenshots/Screenshot_video_interface.jpg "video screen shot")
-![capture](https://github.com/oppo/CameraUnit/blob/main/screenshots/Screenshot_capture_interface.jpg "capture screen shot")
+English | [简体中文](./README-CN.md)
+
+![video](./screenshots/Screenshot_video_interface.jpg "video interface")
+![capture](./screenshots/Screenshot_capture_interface.jpg "capture interface")
 
 ## About CameraUnit
 
@@ -31,14 +33,14 @@ So far, this project has access to the following functions (depending on device 
 
 Supported devices:
 
-| A Series           | F Series           | R Series            | Other Series           |
-| :----:             | :----:             | :----:              | :----:                 |
-| OPPO A Series      | OPPO Find X2       | OPPO Reno4          | OPPO F17 Pro           |
-|                    | OPPO Find X3       | OPPO Reno4 Lite     |                        |
-|                    |                    | OPPO Reno4 pro      |                        |
-|                    |                    | OPPO Reno4 F        |                        |
-|                    |                    | OPPO Reno5          |                        |
-|                    |                    | OPPO Reno6          |                        |
+| A Series           | F Series           | R Series            | Other Series        |
+| :----:             | :----:             | :----:              | :----:              |
+| OPPO A93           | OPPO Find X2       | OPPO Reno2 Z        | OPPO F17 Pro        |
+| OPPO A94           | OPPO Find X2 Lite  | OPPO Reno 3         | OPPO F19 Pro        |
+| OPPO A95           | OPPO Find X2 Pro   | OPPO Reno Ace2      |                     |
+|                    | OPPO Find X3       | OPPO Reno4          |                     |
+|                    | OPPO Find X3 Pro   | OPPO Reno5          |                     |
+|                    | OPPO Find X3 Neo   | OPPO Reno6          |                     |
 
 ## About CameraUnit Demo App
 Now, we provide a sample program to show you the calling process of the interface, 
