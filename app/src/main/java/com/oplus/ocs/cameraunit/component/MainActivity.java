@@ -73,6 +73,7 @@ import com.oplus.ocs.cameraunit.util.UiUtils;
 import com.oplus.ocs.camerax.CameraController;
 import com.oplus.ocs.camerax.CameraStatusCallback;
 import com.oplus.ocs.camerax.ConfigureBean;
+import com.oplus.ocs.camerax.adapter.BaseAdapter;
 import com.oplus.ocs.camerax.component.preview.PreviewInterface;
 import com.oplus.ocs.camerax.features.BaseFeatureFlash;
 import com.oplus.ocs.camerax.features.FeatureFactory;
@@ -779,10 +780,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        public void onCameraError() {
-            Log.d(TAG, "onCameraError, onCameraAuthFailed: ");
+        public void onCameraError(@BaseAdapter.CameraStatusListener.ErrorCode int errorCode, String errorMsg) {
+            Log.d(TAG, "onCameraError, errorCode: " + errorCode + ", errorMsg: " + errorMsg);
 
-            Snackbar.make(mRootView.controller.bottomActionBar, "Camera has some error!", Snackbar.LENGTH_LONG)
+            String str = "Camera has some error! ErrorCode: " + errorCode + "; ErrorMessage: " + errorMsg;
+            Snackbar.make(mRootView.controller.bottomActionBar, str , Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
             runOnUiThread(() -> setAllViewClickable(true));
         }

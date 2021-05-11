@@ -48,6 +48,11 @@ public class Camera2ApiAdapter extends BaseAdapter {
     }
 
     @Override
+    public boolean isPlatformSupported() {
+        return true;
+    }
+
+    @Override
     public void init() {
         List<String> modeTypeList = new ArrayList<>();
         modeTypeList.add(Constant.CameraMode.VIDEO_MODE);

@@ -36,12 +36,15 @@ import android.os.Handler;
 import android.util.Size;
 import android.view.Surface;
 
+import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
 
 import com.oplus.ocs.base.common.ConnectionResult;
 import com.oplus.ocs.camerax.ConfigureBean;
 import com.oplus.ocs.camerax.util.Constant;
 
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.util.List;
 
 public abstract class BaseAdapter {
@@ -54,6 +57,8 @@ public abstract class BaseAdapter {
     public Context getAppContext() {
         return mAppContext;
     }
+
+    public abstract boolean isPlatformSupported();
 
     public boolean isSupportAsyncAuthenticate() {
         return false;
@@ -108,10 +113,30 @@ public abstract class BaseAdapter {
         void onCameraOpened(@Constant.CameraMode String cameraModeType, @Constant.CameraType String cameraType);
         void onCameraClosed();
         void onCameraDisconnected();
-        void onCameraError();
+        void onCameraError(@ErrorCode int errorCode, String errorMsg);
         void onSessionConfigured();
         void onFlashModeSupportListChanged(List<String> list);
-        void onFlashModeChanged(String flashMode);
+        void onFlashModeChanged(@Constant.FlashMode String flashMode);
+
+        @IntDef({ErrorCode.CODE_UNKNOWN_ERROR, ErrorCode.CODE_CAMERA_OCCUPIED_ERROR, ErrorCode.CODE_DEVICE_ERROR,
+                ErrorCode.CODE_PROCESS_ERROR, ErrorCode.CODE_SERVICE_ERROR, ErrorCode.CODE_NOT_SUPPORT_ERROR,
+                ErrorCode.CODE_MEMORY_ERROR, ErrorCode.CODE_PARAMETER_ERROR, ErrorCode.CODE_STREAM_SURFACE_ERROR,
+                ErrorCode.CODE_ILLEGAL_STATE_ERROR, ErrorCode.CODE_AUTHENTICATE_FAILED_ERROR
+        })
+        @Retention(RetentionPolicy.SOURCE)
+        @interface ErrorCode {
+            int CODE_UNKNOWN_ERROR = 0;
+            int CODE_CAMERA_OCCUPIED_ERROR = 1;
+            int CODE_DEVICE_ERROR = 2;
+            int CODE_PROCESS_ERROR = 3;
+            int CODE_SERVICE_ERROR = 4;
+            int CODE_NOT_SUPPORT_ERROR = 5;
+            int CODE_MEMORY_ERROR = 6;
+            int CODE_PARAMETER_ERROR = 7;
+            int CODE_STREAM_SURFACE_ERROR = 8;
+            int CODE_ILLEGAL_STATE_ERROR = 9;
+            int CODE_AUTHENTICATE_FAILED_ERROR = 10;
+        }
     }
 
     public interface PreviewCallback {

@@ -32,8 +32,13 @@ package com.oplus.ocs.camerax;
 
 import android.graphics.Bitmap;
 
+import androidx.annotation.IntDef;
+
+import com.oplus.ocs.camerax.adapter.BaseAdapter;
 import com.oplus.ocs.camerax.util.Constant;
 
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.util.List;
 
 public interface CameraStatusCallback {
@@ -41,7 +46,7 @@ public interface CameraStatusCallback {
     void onCameraOpened(@Constant.CameraType String cameraType);
     void onCameraClosed();
     void onCameraConfigured();
-    void onCameraError();
+    void onCameraError(@BaseAdapter.CameraStatusListener.ErrorCode int errorCode, String errorMsg);
     void onFlashModeSupportListChanged(List<String> list);
     void onFlashModeChanged(String flashMode);
     void onPreviewStart();

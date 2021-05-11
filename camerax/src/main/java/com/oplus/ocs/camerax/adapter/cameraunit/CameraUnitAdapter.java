@@ -122,6 +122,11 @@ public class CameraUnitAdapter extends BaseAdapter {
     }
 
     @Override
+    public boolean isPlatformSupported() {
+        return (null != CameraUnit.getCameraClient(getAppContext()));
+    }
+
+    @Override
     public boolean isSupportAsyncAuthenticate() {
         // 在能力开放中，异步鉴权指的是在初始化的时候，鉴权直接放过，延迟到创建camera session时通过session callback 返回结果，
         // 判断是否是由于鉴权失败导致的fail。而不支持异步鉴权的情况下，就需要通过callback来判断是否鉴权成功了。
@@ -282,7 +287,20 @@ public class CameraUnitAdapter extends BaseAdapter {
 
             @Override
             public void onCameraError(@Nullable CameraErrorResult result) {
-                listener.onCameraError();
+                if (null != result) {
+                    // error code has been defined in sdk ErrorResult.java but not public by some unknown reasons.
+                    if (10001 == result.getErrorCode()) {
+                        listener.onCameraError(CameraStatusListener.ErrorCode.CODE_PARAMETER_ERROR, result.getErrorInfo());
+                    } else if (10002 == result.getErrorCode()) {
+                        listener.onCameraError(CameraStatusListener.ErrorCode.CODE_STREAM_SURFACE_ERROR, result.getErrorInfo());
+                    } else if (10003 == result.getErrorCode()) {
+                        listener.onCameraError(CameraStatusListener.ErrorCode.CODE_ILLEGAL_STATE_ERROR, result.getErrorInfo());
+                    } else {
+                        listener.onCameraError(result.getErrorCode(), result.getErrorInfo());
+                    }
+                } else {
+                    listener.onCameraError(CameraStatusListener.ErrorCode.CODE_UNKNOWN_ERROR, "");
+                }
             }
 
             @Override

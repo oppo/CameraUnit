@@ -45,7 +45,6 @@ import androidx.annotation.NonNull;
 import com.oplus.ocs.camera.CameraParameter;
 import com.oplus.ocs.camerax.adapter.AdapterFactory;
 import com.oplus.ocs.camerax.adapter.BaseAdapter;
-import com.oplus.ocs.camerax.util.CameraUtil;
 import com.oplus.ocs.camerax.util.Constant;
 import com.oplus.ocs.camerax.component.video.VideoControl;
 import com.oplus.ocs.camerax.component.video.VideoStateCallback;
@@ -55,6 +54,8 @@ import java.util.Optional;
 
 import static com.oplus.ocs.camera.CameraUnitClient.CameraMode.SLOW_VIDEO_MODE;
 import static com.oplus.ocs.camera.CameraUnitClient.CameraMode.VIDEO_MODE;
+import static com.oplus.ocs.camerax.adapter.BaseAdapter.CameraStatusListener.ErrorCode.CODE_AUTHENTICATE_FAILED_ERROR;
+import static com.oplus.ocs.camerax.adapter.BaseAdapter.CameraStatusListener.ErrorCode.CODE_NOT_SUPPORT_ERROR;
 import static com.oplus.ocs.camerax.util.Constant.VideoFps.FRAME_RATE_30;
 
 public class CameraController {
@@ -106,11 +107,11 @@ public class CameraController {
         }
 
         @Override
-        public void onCameraError() {
-            Log.d(TAG, "onCameraError");
+        public void onCameraError(@ErrorCode int errorCode, String errorMsg) {
+            Log.d(TAG, "onCameraError, errorCode: " + errorCode + ", errorMsg: " + errorMsg);
 
             mbCameraOpened = false;
-            Optional.ofNullable(mCameraStatusCallback).ifPresent(CameraStatusCallback::onCameraError);
+            Optional.ofNullable(mCameraStatusCallback).ifPresent(callback -> callback.onCameraError(errorCode, errorMsg));
         }
 
         @Override
@@ -220,24 +221,32 @@ public class CameraController {
 
         mCameraAdapter = AdapterFactory.getDeviceAdapter(appContext);
 
-        // 判断是否支持异步鉴权，如果支持，则不需要设置监听器，直接可进行操作，如果后续鉴权失败，会在创建session的时候收到创建session失败的回调，
-        // 如果不支持异步鉴权，需要等鉴权结果回来后再进行后续操作。
-        if (mCameraAdapter.isSupportAsyncAuthenticate()) {
-            mCameraAdapter.authenticateAsync(() -> {
-                // init adapter first
-                mCameraAdapter.init();
-                Optional.ofNullable(mCameraStatusCallback).ifPresent(CameraStatusCallback::onCameraReady);
-            }, result -> {
-                Optional.ofNullable(mCameraStatusCallback).ifPresent(CameraStatusCallback::onCameraError);
-            }, mAuthHandler);
-        } else {
-            if (mCameraAdapter.authenticateSync()) {
-                // init adapter first
-                mCameraAdapter.init();
-                Optional.ofNullable(mCameraStatusCallback).ifPresent(CameraStatusCallback::onCameraReady);
+        // 如果平台不支持，则直接返回Error回调给业务方。
+        if (mCameraAdapter.isPlatformSupported()) {
+            // 判断是否支持异步鉴权，如果支持，则不需要设置监听器，直接可进行操作，如果后续鉴权失败，
+            // 会在创建session的时候收到创建session失败的回调，如果不支持异步鉴权，需要等鉴权结果回来后再进行后续操作。
+            if (mCameraAdapter.isSupportAsyncAuthenticate()) {
+                mCameraAdapter.authenticateAsync(() -> {
+                    // init adapter first
+                    mCameraAdapter.init();
+                    Optional.ofNullable(mCameraStatusCallback).ifPresent(CameraStatusCallback::onCameraReady);
+                }, result -> {
+                    Optional.ofNullable(mCameraStatusCallback).ifPresent(callback ->
+                            callback.onCameraError(CODE_AUTHENTICATE_FAILED_ERROR, "Authenticate failed!"));
+                }, mAuthHandler);
             } else {
-                Optional.ofNullable(mCameraStatusCallback).ifPresent(CameraStatusCallback::onCameraError);
+                if (mCameraAdapter.authenticateSync()) {
+                    // init adapter first
+                    mCameraAdapter.init();
+                    Optional.ofNullable(mCameraStatusCallback).ifPresent(CameraStatusCallback::onCameraReady);
+                } else {
+                    Optional.ofNullable(mCameraStatusCallback).ifPresent(callback ->
+                            callback.onCameraError(CODE_AUTHENTICATE_FAILED_ERROR, "Authenticate failed!"));
+                }
             }
+        } else {
+            Optional.ofNullable(mCameraStatusCallback).ifPresent(callback ->
+                    callback.onCameraError(CODE_NOT_SUPPORT_ERROR, "Not supported by this device!"));
         }
 
         mInstanceInit = true;
