@@ -50,6 +50,7 @@ allprojects {
         maven {
             url "https://maven.columbus.heytapmobi.com/repository/OpenCapability/"
 
+	    // NOTICE: this username & password are public for third-party developers, the maven is read only. There is no security problem.
             credentials {
                 username "ocuser"
                 password "3dca1351358f49aeaf5af516ffd05a7c8e0cbd56"
