@@ -36,6 +36,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.Point;
+import android.os.Build;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
@@ -139,21 +140,36 @@ public class UiUtils {
     }
 
     public static String getModeTabStringWithModeName(Context activityContext, String modeName) {
-        switch (modeName) {
-            case CameraMode.NIGHT_PHOTO_MODE:
-                return activityContext.getString(R.string.mode_night_capture);
-            case CameraMode.PHOTO_MODE:
-                return activityContext.getString(R.string.mode_normal_capture);
-            case CameraMode.VIDEO_MODE:
-                return activityContext.getString(R.string.mode_normal_video);
-            case CameraMode.PORTRAIT_PHOTO_MODE:
-                return activityContext.getString(R.string.mode_portrait_capture);
-            case CameraMode.MULTI_CAMERA_MODE:
-                return activityContext.getString(R.string.mode_multi_camera);
-            case CameraMode.SLOW_VIDEO_MODE:
-                return activityContext.getString(R.string.mode_slowmotion_video);
-            default:
-                return "";
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.R) {
+            switch (modeName) {
+                case CameraMode.PHOTO_MODE:
+                    return activityContext.getString(R.string.mode_normal_capture);
+                case CameraMode.VIDEO_MODE:
+                    return activityContext.getString(R.string.mode_normal_video);
+                case CameraMode.MULTI_CAMERA_MODE:
+                    return activityContext.getString(R.string.mode_multi_camera);
+                case CameraMode.SLOW_VIDEO_MODE:
+                    return activityContext.getString(R.string.mode_slowmotion_video);
+                default:
+                    return "";
+            }
+        } else {
+            switch (modeName) {
+                case CameraMode.NIGHT_PHOTO_MODE:
+                    return activityContext.getString(R.string.mode_night_capture);
+                case CameraMode.PHOTO_MODE:
+                    return activityContext.getString(R.string.mode_normal_capture);
+                case CameraMode.VIDEO_MODE:
+                    return activityContext.getString(R.string.mode_normal_video);
+                case CameraMode.PORTRAIT_PHOTO_MODE:
+                    return activityContext.getString(R.string.mode_portrait_capture);
+                case CameraMode.MULTI_CAMERA_MODE:
+                    return activityContext.getString(R.string.mode_multi_camera);
+                case CameraMode.SLOW_VIDEO_MODE:
+                    return activityContext.getString(R.string.mode_slowmotion_video);
+                default:
+                    return "";
+            }
         }
     }
 

@@ -33,6 +33,7 @@ import android.content.Context;
 import android.os.Handler;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 
 import com.oplus.ocs.camerax.ConfigureBean;
@@ -60,6 +61,7 @@ public class Camera2ApiAdapter extends BaseAdapter {
     }
 
     @Override
+    @Nullable
     public List<String> getSupportModeType() {
         return null;
     }

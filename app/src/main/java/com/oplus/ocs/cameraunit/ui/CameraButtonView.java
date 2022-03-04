@@ -107,26 +107,22 @@ public class CameraButtonView extends RelativeLayout implements View.OnClickList
         if (Mode.PHOTO == mCurrentMode) {
             cameraButtonEventListener.takePicture();
         } else {
-            RelativeLayout.LayoutParams layoutParams = (LayoutParams) mImageView.getLayoutParams();
-            int bigSize = getResources().getDimensionPixelSize(R.dimen.video_stop_action_size);
-            int smallSize = getResources().getDimensionPixelSize(R.dimen.video_start_action_size);
-
             if (isRecording) {
-                isRecording = false;
-                layoutParams.height = bigSize;
-                layoutParams.width = bigSize;
-                mImageView.setImageResource(R.drawable.video_stop_background);
                 cameraButtonEventListener.stopRecording();
             } else {
-                isRecording = true;
-                layoutParams.height = smallSize;
-                layoutParams.width = smallSize;
-                mImageView.setImageResource(R.drawable.video_start_background);
                 cameraButtonEventListener.startRecording();
             }
-
-            mImageView.setLayoutParams(layoutParams);
         }
+    }
+
+    public void updateStartRecordView(){
+        isRecording = true;
+        RelativeLayout.LayoutParams layoutParams = (LayoutParams) mImageView.getLayoutParams();
+        int smallSize = getResources().getDimensionPixelSize(R.dimen.video_start_action_size);
+        layoutParams.height = smallSize;
+        layoutParams.width = smallSize;
+        mImageView.setLayoutParams(layoutParams);
+        mImageView.setImageResource(R.drawable.video_start_background);
     }
 
     public void resetVideoModeView() {

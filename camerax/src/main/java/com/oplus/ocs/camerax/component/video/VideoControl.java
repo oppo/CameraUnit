@@ -216,7 +216,7 @@ public class VideoControl {
                         + ", record time: " + (System.currentTimeMillis() - mStartTime));
 
                 if (stopFailed || ((System.currentTimeMillis() - mStartTime) < AT_LEAST_TIME)) {
-                    //removeVideo(activity, null);
+                    removeVideo();
                     callback.onUpdateUI(null);
                 } else {
                     Bitmap bitmap = createVideoThumbnailBitmap(mCurrentPath);
@@ -284,19 +284,13 @@ public class VideoControl {
         return createVideoThumbnailBitmap(mCurrentPath);
     }
 
-    private void removeVideo(Activity activity, Uri currentUri) {
+    private void removeVideo() {
         if (null != mCurrentPath) {
             File f = new File(mCurrentPath);
 
             if (f.exists() && !f.delete()) {
                 Log.v(TAG, "deleteVideoFile, Could not delete: " + mCurrentPath);
             }
-        }
-
-        if (null != currentUri) {
-            Log.v(TAG, "deleteVideoFile, delete uri: " + currentUri);
-
-            activity.getContentResolver().delete(currentUri, null, null);
         }
     }
 

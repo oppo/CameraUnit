@@ -219,6 +219,8 @@ public class CameraUnitAdapter extends BaseAdapter {
         Log.d(TAG, "init: mCameraCharacteristicMap: " + mCameraCharacteristicMap);
     }
 
+    @Override
+    @Nullable
     public List<String> getSupportModeType() {
         if (mCameraCharacteristicMap.isEmpty()) {
             return null;
@@ -619,7 +621,10 @@ public class CameraUnitAdapter extends BaseAdapter {
         } else if (NIGHT_MODE.equals(modeType) || PORTRAIT_MODE.equals(modeType) || PHOTO_MODE.equals(modeType)) {
             mPreviewSize = CameraUtil.getOptimalPreviewSize(getAppContext(), previewSizes, currentRatio);
             // choose the support biggest capture size
-            mPictureSize = pictureSizes.get(0);
+
+            if ((null != pictureSizes) && !pictureSizes.isEmpty()) {
+                mPictureSize = pictureSizes.get(0);
+            }
         } else {
             if (!Constant.DisplayResolution.DISPLAY_RESOLUTION_NORMAL.equals(configure.getVideoResolution())) {
                 // 目前这里是硬编码，由于list中只有 [1920x1080, 1280x720]， 因此在非 720p 的时候取第一个。

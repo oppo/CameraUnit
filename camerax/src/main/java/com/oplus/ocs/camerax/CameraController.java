@@ -41,6 +41,7 @@ import android.util.Size;
 import android.view.Surface;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.oplus.ocs.camera.CameraParameter;
 import com.oplus.ocs.camerax.adapter.AdapterFactory;
@@ -269,6 +270,7 @@ public class CameraController {
     /**
      * Call it after onCameraReady
      */
+    @Nullable
     public List<String> getSupportModeType() {
         return mCameraAdapter.getSupportModeType();
     }
@@ -347,8 +349,8 @@ public class CameraController {
     public void pause(@NonNull ConfigureBean configure) {
         Log.d(TAG, "pause: camera host paused!");
 
-        if (mVideoControl.isRecording()) {
-            stopRecording();
+        if (!mVideoControl.isStopped() && !mVideoControl.isStopping()) {
+            stopRecording(true);
         }
 
         if (mbCameraOpened) {
@@ -396,9 +398,11 @@ public class CameraController {
         mCameraAdapter.pauseRecording();
     }
 
-    public void stopRecording() {
-        mVideoControl.stop(mVideoStateCallback);
-        mCameraAdapter.stopRecording(mRecordingStatusCallback);
+    public void stopRecording(boolean isPaused) {
+        if (mVideoControl.isStoppable() || isPaused) {
+            mVideoControl.stop(mVideoStateCallback);
+            mCameraAdapter.stopRecording(mRecordingStatusCallback);
+        }
     }
 
     public void takePicture(ConfigureBean configureBean) {

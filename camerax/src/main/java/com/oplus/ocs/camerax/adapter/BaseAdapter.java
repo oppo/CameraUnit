@@ -38,6 +38,7 @@ import android.view.Surface;
 
 import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.oplus.ocs.base.common.ConnectionResult;
 import com.oplus.ocs.camerax.ConfigureBean;
@@ -74,6 +75,7 @@ public abstract class BaseAdapter {
 
     public abstract void init();
 
+    @Nullable
     public abstract List<String> getSupportModeType();
 
     public abstract List<String> getSupportCameraType(@Constant.CameraMode String cameraModeType);

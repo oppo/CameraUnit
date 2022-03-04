@@ -422,6 +422,7 @@ public class MainActivity extends AppCompatActivity {
 
             if (isRecording) {
                 mRootView.controller.videoTimeView.startTimer();
+                mRootView.controller.cameraButton.updateStartRecordView();
             } else {
                 mRootView.controller.videoTimeView.stopTimer(false);
                 mRootView.controller.cameraButton.resetVideoModeView();
@@ -492,6 +493,12 @@ public class MainActivity extends AppCompatActivity {
         mRootView.controller.modeTab.clearOnTabSelectedListeners();
         List<String> modeList = CameraController.getInstance().getSupportModeType();
 
+        if (modeList == null) {
+            return;
+        }
+
+        List<String> showModeList = new ArrayList<>();
+
         // ImageReaderPreview and TexturePreview are not supported in multi_camera_mode,
         // because there has not init two surfaces
         if ((Constant.PreviewViewType.IMAGE_READER.equals(mViewType))
@@ -502,17 +509,23 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "onCameraReady: allSupportModeList is: " + modeList);
 
         for (String mode : modeList) {
-            TabLayout.Tab item = mRootView.controller.modeTab.newTab();
-            item.setText(UiUtils.getModeTabStringWithModeName(getBaseContext(), mode));
-            item.setTag(mode);
-            mRootView.controller.modeTab.addTab(item, false);
+            if (!TextUtils.isEmpty(UiUtils.getModeTabStringWithModeName(getBaseContext(), mode))) {
+                TabLayout.Tab item = mRootView.controller.modeTab.newTab();
+                item.setText(UiUtils.getModeTabStringWithModeName(getBaseContext(), mode));
+                item.setTag(mode);
+                mRootView.controller.modeTab.addTab(item, false);
+                showModeList.add(mode);
+            }
         }
 
-        int modeIndex = modeList.indexOf(mConfigureBean.getCameraModeType());
-        mRootView.controller.modeTab.selectTab(mRootView.controller.modeTab.getTabAt(modeIndex));
-        mRootView.controller.modeTab.addOnTabSelectedListener(mOnTabSelectedListener);
-        setCameraButtonMode(mConfigureBean.getCameraModeType());
-        updateCameraTypeFab(mConfigureBean.getCameraModeType());
+        if (showModeList.size() > 0) {
+            String currentMode = mConfigureBean.getCameraModeType();
+            int modeIndex = showModeList.indexOf(currentMode);
+            mRootView.controller.modeTab.selectTab(mRootView.controller.modeTab.getTabAt(modeIndex));
+            mRootView.controller.modeTab.addOnTabSelectedListener(mOnTabSelectedListener);
+            setCameraButtonMode(currentMode);
+            updateCameraTypeFab(currentMode);
+        }
     }
 
     private void updateFeature() {
@@ -654,7 +667,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void stopRecording() {
-                CameraController.getInstance().stopRecording();
+                CameraController.getInstance().stopRecording(false);
             }
         });
 

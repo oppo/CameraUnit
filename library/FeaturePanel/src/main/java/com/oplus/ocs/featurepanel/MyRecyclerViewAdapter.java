@@ -107,7 +107,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
 
         List<String> featureNames = selectedFeature.getFeatureDisplayNameLists();
 
-        if ((null != featureNames) && !featureNames.isEmpty()) {
+        if ((null != featureNames) && !featureNames.isEmpty() && (0 <= itemIndex)) {
             String selectedFeatureName =  featureNames.get(itemIndex);
 
             if (null != selectedFeatureName) {

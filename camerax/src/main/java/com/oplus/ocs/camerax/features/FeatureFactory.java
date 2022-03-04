@@ -64,7 +64,7 @@ public class FeatureFactory {
     private FeatureFactory() {
     }
 
-    @IntDef({FeatureIds.VIDEO_FEATURE_NORMAL, FeatureIds.VIDEO_FEATURE_VIDEO_SLOW_MOTION,
+    @IntDef({FeatureIds.COMMON_SETTING, FeatureIds.VIDEO_FEATURE_NORMAL, FeatureIds.VIDEO_FEATURE_VIDEO_SLOW_MOTION,
             FeatureIds.VIDEO_FEATURE_VIDEO_AI_NIGHT, FeatureIds.VIDEO_FEATURE_VIDEO_HDR,
             FeatureIds.VIDEO_FEATURE_VIDEO_STABILIZATION, FeatureIds.VIDEO_FEATURE_VIDEO_FPS,
             FeatureIds.VIDEO_FEATURE_VIDEO_RESOLUTION, FeatureIds.COMMON_FEATURE_FLASH,

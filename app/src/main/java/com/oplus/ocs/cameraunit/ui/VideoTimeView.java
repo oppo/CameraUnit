@@ -96,11 +96,12 @@ public class VideoTimeView extends LinearLayout {
         }
 
         if (null != mTimer) {
+            mTimerTask.cancel();
+            mTimerTask = null;
+
             mTimer.cancel();
             mTimer.purge();
-            mTimerTask.cancel();
             mTimer = null;
-            mTimerTask = null;
         }
     }
 
