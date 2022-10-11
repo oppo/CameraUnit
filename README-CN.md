@@ -47,6 +47,9 @@ Supported devices:
 非常欢迎您也可以参与到本项目中，Comments/Bugs/Questions/PR 都是受欢迎的。
 如果您想要贡献您的代码，请仔细阅读 [CONTRIBUTING.md][contributing] 中的内容。
 
+## API 更新记录
+详官网[版本更新说明][updateLog] 。
+
 ## 编译
 本项目使用 gradle 构建起来非常的简单：
 
@@ -98,8 +101,9 @@ cd CameraUnit
 
 Copyright (c) 2021 OPPO. All rights reserved.
 
-[CameraUnitLink]: https://open.oppomobile.com/newservice/capability?pagename=cameraunit
-[CameraUnitInstructions]: https://open.oppomobile.com/wiki/doc#id=10751
+[CameraUnitLink]: https://open.oppomobile.com/new/developmentDoc/info?id=10717
+[CameraUnitInstructions]: https://open.oppomobile.com/new/developmentDoc/info?id=10723
+[updateLog]: https://open.oppomobile.com/new/developmentDoc/info?id=11163
 [issue-reporting-guidelines]: #
 [open-new-issue]: https://github.com/oppo/CameraUnit/issues
 [android-studio]: https://developer.android.com/studio

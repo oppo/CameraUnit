@@ -30,6 +30,7 @@
 
 package com.oplus.ocs.camerax.adapter.cameraunit;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.ImageFormat;
 import android.hardware.camera2.CameraCharacteristics;
@@ -96,7 +97,6 @@ import static com.oplus.ocs.camerax.features.FeatureFactory.FeatureIds.VIDEO_FEA
 import static com.oplus.ocs.camerax.features.FeatureFactory.FeatureIds.VIDEO_FEATURE_VIDEO_FPS;
 import static com.oplus.ocs.camerax.features.FeatureFactory.FeatureIds.VIDEO_FEATURE_VIDEO_HDR;
 import static com.oplus.ocs.camerax.features.FeatureFactory.FeatureIds.VIDEO_FEATURE_VIDEO_STABILIZATION;
-import static com.oplus.ocs.camerax.util.Constant.VideoResolution.VIDEO_RESOLUTION_720P;
 
 public class CameraUnitAdapter extends BaseAdapter {
     private static final String TAG = "CameraUnitAdapter";
@@ -650,6 +650,7 @@ public class CameraUnitAdapter extends BaseAdapter {
                 + "mPictureSize: " + mPictureSize + "previewSizes: " + previewSizes);
     }
 
+    @SuppressLint("WrongConstant")
     private void setConfigParameter(CameraDeviceConfig.Builder builder, ConfigureBean configure) {
         String modeType = configure.getCameraModeType();
         String cameraType = configure.getCameraType();
@@ -734,7 +735,7 @@ public class CameraUnitAdapter extends BaseAdapter {
     }
 
     public static int getJpegOrientation(CameraDeviceInfo info, int orientation) {
-        int rotation = 0;
+        int rotation;
 
         Integer facing = info.get(CameraCharacteristics.LENS_FACING);
 

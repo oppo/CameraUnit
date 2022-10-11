@@ -60,6 +60,7 @@
             android:launchMode="singleTop"
             android:resizeableActivity="false"
             android:screenOrientation="portrait"
+            android:exported="true"
             android:theme="@style/Theme.CameraUnit.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

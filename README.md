@@ -51,6 +51,9 @@ Version 1.0.0 is now released and stable. Updates are released periodically with
 
 Comments/Bugs/Questions/PR are always welcome! Please read [CONTRIBUTING.md][contributing] on how to report issues.
 
+## API Update Log
+See [update Log][updateLog] 。
+
 ## Build
 Building project with gradle is fairly straight forward:
 
@@ -103,8 +106,9 @@ Thank you to all the people who already contributed to this project!
 
 Copyright (c) 2021 OPPO. All rights reserved.
 
-[CameraUnitLink]: https://open.oppomobile.com/newservice/capability?pagename=cameraunit
-[CameraUnitInstructions]: https://open.oppomobile.com/wiki/doc#id=10751
+[CameraUnitLink]: https://developers.oppomobile.com/newservice/capability?pagename=cameraunit
+[CameraUnitInstructions]: https://open.oppomobile.com/new/developmentDoc/info?id=10723
+[updateLog]: https://open.oppomobile.com/new/developmentDoc/info?id=11163
 [issue-reporting-guidelines]: #
 [open-new-issue]: https://github.com/oppo/CameraUnit/issues
 [android-studio]: https://developer.android.com/studio

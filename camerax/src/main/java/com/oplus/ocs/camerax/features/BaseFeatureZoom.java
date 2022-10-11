@@ -34,11 +34,8 @@ import android.content.Context;
 
 import com.oplus.ocs.camerax.ConfigureBean;
 import com.oplus.ocs.camerax.R;
-import com.oplus.ocs.camerax.util.Constant;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public abstract class BaseFeatureZoom implements IFeature {

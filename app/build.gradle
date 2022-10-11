@@ -34,8 +34,8 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.2"
+    compileSdkVersion 33
+    buildToolsVersion "33.0.0"
 
     signingConfigs {
         release {
@@ -51,7 +51,7 @@ android {
     defaultConfig {
         applicationId "com.ocs.cameraunit"
         minSdkVersion 29
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode 2
         versionName "1.0.1"
 

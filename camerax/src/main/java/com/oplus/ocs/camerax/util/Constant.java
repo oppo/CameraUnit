@@ -42,6 +42,7 @@ public final class Constant {
         // do nothing
     }
 
+    @Retention(RetentionPolicy.SOURCE)
     public @interface PreviewRatio {
         double RATIO_VALUE_1_1 = (double) 1 / 1;
         double RATIO_VALUE_4_3 = (double) 4 / 3;
@@ -84,8 +85,8 @@ public final class Constant {
         int ORIENTATION_360 = 360;
     }
 
-    @StringDef({CameraMode.VIDEO_MODE, CameraMode.PHOTO_MODE, CameraMode.MULTI_CAMERA_MODE, CameraMode.NIGHT_PHOTO_MODE,
-            CameraMode.PORTRAIT_PHOTO_MODE, CameraMode.SLOW_VIDEO_MODE
+    @StringDef({CameraMode.VIDEO_MODE, CameraMode.PHOTO_MODE, CameraMode.PREVIEW_MODE, CameraMode.MULTI_CAMERA_MODE,
+            CameraMode.NIGHT_PHOTO_MODE, CameraMode.PORTRAIT_PHOTO_MODE, CameraMode.SLOW_VIDEO_MODE
     })
     @Retention(RetentionPolicy.SOURCE)
     public @interface CameraMode {
@@ -164,7 +165,8 @@ public final class Constant {
         String VIDEO_FPS_RANGE_960 = "[960, 960]";
     }
 
-    @StringDef({VideoStabilizationMode.VIDEO_STABILIZATION, VideoStabilizationMode.SUPER_STABILIZATION})
+    @StringDef({VideoStabilizationMode.VIDEO_STABILIZATION_OFF, VideoStabilizationMode.VIDEO_STABILIZATION,
+            VideoStabilizationMode.SUPER_STABILIZATION})
     @Retention(RetentionPolicy.SOURCE)
     public @interface VideoStabilizationMode {
         String VIDEO_STABILIZATION_OFF = "off";

@@ -49,6 +49,7 @@ import android.view.Surface;
 import com.oplus.ocs.camerax.util.Constant;
 
 import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -311,7 +312,7 @@ public class VideoControl {
         } finally {
             try {
                 retriever.release();
-            } catch (RuntimeException ex) {
+            } catch (RuntimeException | IOException ex) {
                 // Ignore failures while cleaning up.
             }
         }
