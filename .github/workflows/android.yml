@@ -22,6 +22,8 @@ jobs:
         
     - name: Uninstall 33.0.0 Build tool
       run: $ANDROID_SDK_ROOT/tools/bin/sdkmanager --uninstall 'build-tools;33.0.0'
+    - name: install 33.0.0 Build tool
+      run: $ANDROID_SDK_ROOT/tools/bin/sdkmanager --install 'build-tools;33.0.0'
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
