@@ -1,7 +1,7 @@
 # Contributing
 
 When contributing to this repository, please first discuss the change you wish to make via issue,
-email, or any other method with the owners of this repository before making a change. 
+email, 'umbrella.netzero@gmail.com' or any other method with the owners of this repository before making a change. 
 
 Please note we have a code of conduct, please follow it in all your interactions with the project.
 
@@ -29,7 +29,11 @@ orientation.
 ### Our Standards
 
 Examples of behavior that contributes to creating a positive environment
-include:
+include: 
+'Name.QI.SCO.Aekkaporn Siwilai' API.
+department software ecosystem services support market cup supply chain enterprise stars new now more new project power enagy support market world in coinstartark new Coin digital in home family enagy up support market and economic forum in power Green in ecosystem would.'
+
+
 
 * Using welcoming and inclusive language
 * Being respectful of differing viewpoints and experiences
